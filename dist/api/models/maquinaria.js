@@ -21,10 +21,6 @@ exports.maquinaria_model = function (sequelize) {
             type: sequelize_1.DataTypes.STRING(40),
             allowNull: false
         },
-        maq_uso: {
-            type: sequelize_1.DataTypes.STRING(20),
-            allowNull: false
-        },
         maq_lat: {
             type: sequelize_1.DataTypes.DECIMAL(10, 8),
             allowNull: false
@@ -34,6 +30,10 @@ exports.maquinaria_model = function (sequelize) {
             allowNull: false
         },
         maq_capacidad: {
+            type: sequelize_1.DataTypes.FLOAT,
+            allowNull: true
+        },
+        maq_peso: {
             type: sequelize_1.DataTypes.FLOAT,
             allowNull: false
         },
@@ -46,7 +46,7 @@ exports.maquinaria_model = function (sequelize) {
             allowNull: false
         },
         maq_tipo: {
-            type: sequelize_1.DataTypes.STRING(20),
+            type: sequelize_1.DataTypes.INTEGER,
             allowNull: false
         },
     }, {

@@ -29,6 +29,10 @@ export var maquinaria_model = (sequelize: Sequelize) => {
         },
         maq_capacidad:{
             type:DataTypes.FLOAT,
+            allowNull:true
+        },
+        maq_peso:{
+            type:DataTypes.FLOAT,
             allowNull:false
         },
         maq_img: {
@@ -40,7 +44,7 @@ export var maquinaria_model = (sequelize: Sequelize) => {
             allowNull:false
         },
         maq_tipo:{
-            type:DataTypes.STRING(20),
+            type:DataTypes.INTEGER,
             allowNull:false
         },
     },{

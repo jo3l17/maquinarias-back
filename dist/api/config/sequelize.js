@@ -7,6 +7,9 @@ var alquiler_1 = require("../models/alquiler");
 var registroCotizacion_1 = require("../models/registroCotizacion");
 var cotizacionMasiva_1 = require("../models/cotizacionMasiva");
 var cotizacionIndividual_1 = require("../models/cotizacionIndividual");
+var maqUso_1 = require("../models/maqUso");
+var maqTipo_1 = require("../models/maqTipo");
+var maqUsoTipo_1 = require("../models/maqUsoTipo");
 var Sequelize = require('sequelize');
 exports.sequelize = new Sequelize('D4hcPSsuFt', 'D4hcPSsuFt', 'GuymIIF1TU', {
     host: 'remotemysql.com',
@@ -21,6 +24,15 @@ exports.Alquiler = alquiler_1.alquiler_model(exports.sequelize);
 exports.RegistroCotizacion = registroCotizacion_1.registroCotizacion_model(exports.sequelize);
 exports.CotizacionMasiva = cotizacionMasiva_1.cotizacionMasiva_model(exports.sequelize);
 exports.CotizacionIndividual = cotizacionIndividual_1.cotizacionIndividual_model(exports.sequelize);
+exports.MaqUso = maqUso_1.maqUso_model(exports.sequelize);
+exports.MaqTipo = maqTipo_1.maqTipo_model(exports.sequelize);
+exports.MaqUsoTipo = maqUsoTipo_1.maqUsoTipo_model(exports.sequelize);
+exports.MaqTipo.belongsTo(exports.Maquinaria, { foreignKey: 'maq_id' });
+exports.Maquinaria.hasOne(exports.MaqTipo, { foreignKey: 'maq_id' });
+exports.MaqUsoTipo.belongsTo(exports.MaqUso, { foreignKey: 'maqUso_id' });
+exports.MaqUso.hasMany(exports.MaqUsoTipo, { foreignKey: 'maqUso_id' });
+exports.MaqUsoTipo.belongsTo(exports.MaqTipo, { foreignKey: 'maqTipo_id' });
+exports.MaqTipo.hasMany(exports.MaqUsoTipo, { foreignKey: 'maqTipo_id' });
 exports.Maquinaria.belongsTo(exports.Usuario, { foreignKey: 'usu_id' });
 exports.Usuario.hasMany(exports.Maquinaria, { foreignKey: 'usu_id' });
 exports.Cotizacion.belongsTo(exports.Maquinaria, { foreignKey: 'maq_id' });
