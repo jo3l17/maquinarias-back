@@ -28,8 +28,8 @@ export const MaqUso = maqUso_model(sequelize);
 export const MaqTipo = maqTipo_model(sequelize);
 export const MaqUsoTipo = maqUsoTipo_model(sequelize);
 
-MaqTipo.belongsTo(Maquinaria,{foreignKey:'maq_id'});
-Maquinaria.hasOne(MaqTipo,{foreignKey:'maq_id'});
+Maquinaria.belongsTo(MaqTipo,{foreignKey:'maqTipo_id'});
+MaqTipo.hasOne(Maquinaria,{foreignKey:'maqTipo_id'});
 
 MaqUsoTipo.belongsTo(MaqUso,{foreignKey:'maqUso_id'});
 MaqUso.hasMany(MaqUsoTipo,{foreignKey:'maqUso_id'});

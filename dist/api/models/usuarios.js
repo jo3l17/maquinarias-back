@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var sequelize_1 = require("sequelize");
-var crypto = require('crypto');
-var jwt = require('jsonwebtoken');
-exports.usuarios_model = function (sequelize) {
+const sequelize_1 = require("sequelize");
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
+exports.usuarios_model = (sequelize) => {
     var usuarios_model = sequelize.define('t_usuarios', {
         usu_id: {
             type: sequelize_1.DataTypes.INTEGER,
@@ -60,7 +60,7 @@ exports.usuarios_model = function (sequelize) {
         this.usu_hash = crypto.pbkdf2Sync(password, this.usu_salt, 1000, 64, 'sha512').toString('hex');
     };
     usuarios_model.prototype.validPassword = function (password) {
-        var hash_temporal = crypto.pbkdf2Sync(password, this.usu_salt, 1000, 64, 'sha512').toString('hex');
+        let hash_temporal = crypto.pbkdf2Sync(password, this.usu_salt, 1000, 64, 'sha512').toString('hex');
         if (hash_temporal === this.usu_hash) {
             return true;
         }
@@ -69,7 +69,7 @@ exports.usuarios_model = function (sequelize) {
         }
     };
     usuarios_model.prototype.generateJWT = function () {
-        var payload = {
+        let payload = {
             usu_id: this.usu_id,
             usu_nombre: this.usu_nombre
         };

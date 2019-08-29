@@ -2,6 +2,9 @@
 import { NextFunction,Request,Response} from 'express';
 import {sequelize} from './api/config/sequelize';
 import { auth_router } from './api/routes/auth';
+import { maquinaria_router } from './api/routes/maquinaria';
+import { maquinaria_tipo_router } from './api/routes/maqTipo';
+import { maquinaria_uso_router } from './api/routes/maqUso';
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -17,7 +20,7 @@ app.use((req:Request,res:Response,next:NextFunction)=>{
 });
 app.listen(puerto,()=>{
     console.log(`servidor coriendo en ${puerto}`);
-    sequelize.sync({force:true}).then(()=>{
+    sequelize.sync({force:false}).then(()=>{
         console.log('base de datos creada');
     }).catch((error:any)=>{
         console.log(error);
@@ -25,4 +28,7 @@ app.listen(puerto,()=>{
     })
 });
 app.use('/api',auth_router)
+app.use('/api',maquinaria_router)
+app.use('/api',maquinaria_tipo_router)
+app.use('/api',maquinaria_uso_router)
 // app.use('/',(req:any,res:any)=>{res.send('it works :v')})

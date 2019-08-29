@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var sequelize_1 = require("sequelize");
-exports.maquinaria_model = function (sequelize) {
+const sequelize_1 = require("sequelize");
+exports.maquinaria_model = (sequelize) => {
     var maquinaria_model = sequelize.define('t_maquinaria', {
         maq_id: {
             type: sequelize_1.DataTypes.INTEGER,
@@ -35,7 +35,8 @@ exports.maquinaria_model = function (sequelize) {
         },
         maq_peso: {
             type: sequelize_1.DataTypes.FLOAT,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 350
         },
         maq_img: {
             type: sequelize_1.DataTypes.STRING(1000),
@@ -44,11 +45,7 @@ exports.maquinaria_model = function (sequelize) {
         maq_estado: {
             type: sequelize_1.DataTypes.STRING(1),
             allowNull: false
-        },
-        maq_tipo: {
-            type: sequelize_1.DataTypes.INTEGER,
-            allowNull: false
-        },
+        }
     }, {
         timestamps: false,
         tableName: 't_maquinaria'

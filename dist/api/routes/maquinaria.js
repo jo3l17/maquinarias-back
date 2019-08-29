@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const maquinaria_1 = require("../controllers/maquinaria");
+const express_1 = require("express");
+exports.maquinaria_router = express_1.Router();
+exports.maquinaria_router.get('/maquinaria/traertodos', maquinaria_1.maquinaria_controller.getAll);
+exports.maquinaria_router.get('/maquinaria/:categoria_id/:anio', maquinaria_1.maquinaria_controller.getByAnioAndCategoria);
+exports.maquinaria_router.get('/maquinaria/:categoria_id/:anio/:marca', maquinaria_1.maquinaria_controller.getByAnioCategoriaAndMarca);
+exports.maquinaria_router.get('/maquinaria/:categoria_id/:anio/:marca/:modelo', maquinaria_1.maquinaria_controller.getByModelo);
+exports.maquinaria_router.get('/maquinaria/:id', maquinaria_1.maquinaria_controller.getById);

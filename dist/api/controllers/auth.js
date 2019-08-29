@@ -1,33 +1,33 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var sequelize_1 = require("./../config/sequelize");
+const sequelize_1 = require("./../config/sequelize");
 exports.auth_controller = {
     /**
      * Función para registrar un usuario
      * se reciben los parametros por el BODY método POST
      */
-    register: function (req, res) {
+    register: (req, res) => {
         sequelize_1.Usuario.findAll({
             where: {
                 usu_email: req.body.usu_email
             }
-        }).then(function (usuarios) {
+        }).then((usuarios) => {
             if (usuarios.length === 0) {
                 // -- AQUI -- //
                 // Instanciando un objeto del modelo Usuario
-                var objUsuario = sequelize_1.Usuario.build(req.body);
+                let objUsuario = sequelize_1.Usuario.build(req.body);
                 objUsuario.setSaltAndHash(req.body.usu_pass);
-                objUsuario.save().then(function (usuarioCreado) {
-                    var token = usuarioCreado.generateJWT();
+                objUsuario.save().then((usuarioCreado) => {
+                    let token = usuarioCreado.generateJWT();
                     if (usuarioCreado && token) {
-                        var response = {
+                        let response = {
                             message: 'created',
                             token: token,
                         };
                         res.status(201).json(response);
                     }
                     else {
-                        var response = {
+                        let response = {
                             message: 'error',
                             content: 'Erro al crear el usuario y/o token',
                         };
@@ -37,29 +37,29 @@ exports.auth_controller = {
                 // </aqui>
             }
             else {
-                var response = {
+                let response = {
                     message: 'error',
-                    content: "El usuario con email " + req.body.usu_email + " ya existe",
+                    content: `El usuario con email ${req.body.usu_email} ya existe`,
                 };
                 res.status(500).json(response);
             }
         });
     },
-    login: function (req, res) {
-        var _a = req.body, usu_email = _a.usu_email, usu_pass = _a.usu_pass;
+    login: (req, res) => {
+        let { usu_email, usu_pass } = req.body;
         // findOne => 
         sequelize_1.Usuario.findOne({
             where: {
                 usu_email: usu_email
             }
-        }).then(function (objUsuario) {
+        }).then((objUsuario) => {
             if (objUsuario) {
                 // el usuario existe => validar la contra
-                var valid = objUsuario.validPassword(usu_pass);
+                let valid = objUsuario.validPassword(usu_pass);
                 if (valid) {
                     // contrasenia correcta
-                    var token = objUsuario.generateJWT();
-                    var response = {
+                    let token = objUsuario.generateJWT();
+                    let response = {
                         message: 'ok',
                         token: token
                     };
@@ -67,7 +67,7 @@ exports.auth_controller = {
                 }
                 else {
                     // contrasenia incorrecta
-                    var response = {
+                    let response = {
                         message: 'error',
                         content: 'Usuario o password incorrecto'
                     };
@@ -76,7 +76,7 @@ exports.auth_controller = {
             }
             else {
                 // si es null
-                var response = {
+                let response = {
                     message: 'error',
                     content: 'Usuario o password incorrecto'
                 };

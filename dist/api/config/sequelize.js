@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var usuarios_1 = require("../models/usuarios");
-var cotizacion_1 = require("../models/cotizacion");
-var maquinaria_1 = require("../models/maquinaria");
-var alquiler_1 = require("../models/alquiler");
-var registroCotizacion_1 = require("../models/registroCotizacion");
-var cotizacionMasiva_1 = require("../models/cotizacionMasiva");
-var cotizacionIndividual_1 = require("../models/cotizacionIndividual");
-var maqUso_1 = require("../models/maqUso");
-var maqTipo_1 = require("../models/maqTipo");
-var maqUsoTipo_1 = require("../models/maqUsoTipo");
-var Sequelize = require('sequelize');
+const usuarios_1 = require("../models/usuarios");
+const cotizacion_1 = require("../models/cotizacion");
+const maquinaria_1 = require("../models/maquinaria");
+const alquiler_1 = require("../models/alquiler");
+const registroCotizacion_1 = require("../models/registroCotizacion");
+const cotizacionMasiva_1 = require("../models/cotizacionMasiva");
+const cotizacionIndividual_1 = require("../models/cotizacionIndividual");
+const maqUso_1 = require("../models/maqUso");
+const maqTipo_1 = require("../models/maqTipo");
+const maqUsoTipo_1 = require("../models/maqUsoTipo");
+const Sequelize = require('sequelize');
 exports.sequelize = new Sequelize('D4hcPSsuFt', 'D4hcPSsuFt', 'GuymIIF1TU', {
     host: 'remotemysql.com',
     dialect: 'mysql',
@@ -27,8 +27,8 @@ exports.CotizacionIndividual = cotizacionIndividual_1.cotizacionIndividual_model
 exports.MaqUso = maqUso_1.maqUso_model(exports.sequelize);
 exports.MaqTipo = maqTipo_1.maqTipo_model(exports.sequelize);
 exports.MaqUsoTipo = maqUsoTipo_1.maqUsoTipo_model(exports.sequelize);
-exports.MaqTipo.belongsTo(exports.Maquinaria, { foreignKey: 'maq_id' });
-exports.Maquinaria.hasOne(exports.MaqTipo, { foreignKey: 'maq_id' });
+exports.Maquinaria.belongsTo(exports.MaqTipo, { foreignKey: 'maqTipo_id' });
+exports.MaqTipo.hasOne(exports.Maquinaria, { foreignKey: 'maqTipo_id' });
 exports.MaqUsoTipo.belongsTo(exports.MaqUso, { foreignKey: 'maqUso_id' });
 exports.MaqUso.hasMany(exports.MaqUsoTipo, { foreignKey: 'maqUso_id' });
 exports.MaqUsoTipo.belongsTo(exports.MaqTipo, { foreignKey: 'maqTipo_id' });

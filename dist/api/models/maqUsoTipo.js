@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var sequelize_1 = require("sequelize");
-exports.maqUsoTipo_model = function (sequelize) {
+const sequelize_1 = require("sequelize");
+exports.maqUsoTipo_model = (sequelize) => {
     var maqUsoTipo_model = sequelize.define('t_maqUsoTipo', {
         maqUsoTipo_id: {
             type: sequelize_1.DataTypes.INTEGER,

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var sequelize_1 = require("sequelize");
-exports.cotizacionMasiva_model = function (sequelize) {
+const sequelize_1 = require("sequelize");
+exports.cotizacionMasiva_model = (sequelize) => {
     var cotizacionMasiva_model = sequelize.define('t_cotizacionMasiva', {
         cotM_id: {
             type: sequelize_1.DataTypes.INTEGER,
