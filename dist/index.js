@@ -5,6 +5,7 @@ const auth_1 = require("./api/routes/auth");
 const maquinaria_1 = require("./api/routes/maquinaria");
 const maqTipo_1 = require("./api/routes/maqTipo");
 const maqUso_1 = require("./api/routes/maqUso");
+const usuario_1 = require("./api/routes/usuario");
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -31,4 +32,5 @@ app.use('/api', auth_1.auth_router);
 app.use('/api', maquinaria_1.maquinaria_router);
 app.use('/api', maqTipo_1.maquinaria_tipo_router);
 app.use('/api', maqUso_1.maquinaria_uso_router);
+app.use('/api', usuario_1.usuario_router);
 // app.use('/',(req:any,res:any)=>{res.send('it works :v')})

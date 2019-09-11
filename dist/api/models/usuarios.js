@@ -71,7 +71,9 @@ exports.usuarios_model = (sequelize) => {
     usuarios_model.prototype.generateJWT = function () {
         let payload = {
             usu_id: this.usu_id,
-            usu_nombre: this.usu_nombre
+            usu_nombre: this.usu_nombre,
+            usu_doc_num: this.usu_doc_num,
+            usu_razon_social: this.usu_razon_social
         };
         var token = jwt.sign(payload, 'sape', { expiresIn: '1h' }, { algorithm: 'RS256' });
         return token;

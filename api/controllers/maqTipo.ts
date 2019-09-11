@@ -82,30 +82,6 @@ export var maquinaria_tipo_controller = {
     },
     getMarca: (req: Request, res: Response) => {
         let { categoria_id } = req.params
-        // MaqTipo.findAll({
-        //     where:{
-        //         maqTipo_nom:categoria
-        //     },
-        //     include:[{
-        //         model:Maquinaria,
-        //         attributes: ['maq_marca'],
-        //         group: ['maq_marca'],
-        //     }],
-        // }).then((Respuesta: any) => {
-        //     if (Respuesta) {
-        //         res.status(201).json({
-        //             message: 'fine',
-        //             content: Respuesta
-        //         })
-        //     } else {
-        //         res.status(400).json({
-        //             message: 'Error',
-        //             content: 'Error al traer las maquinarias'
-        //         })
-        //     }
-        // }).catch((error: any) => {
-        //     console.log("Error => " + error);
-        // });
         sequelize.query(`SELECT DISTINCT maq_marca FROM t_maqTipo LEFT OUTER JOIN t_maquinaria
         ON t_maqTipo.maqTipo_id = t_maquinaria.maqTipo_id WHERE t_maqTipo.maqTipo_id = '${categoria_id}' group by t_maquinaria.maq_marca`
         ).then((Respuesta: any) => {

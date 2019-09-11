@@ -5,6 +5,7 @@ import { auth_router } from './api/routes/auth';
 import { maquinaria_router } from './api/routes/maquinaria';
 import { maquinaria_tipo_router } from './api/routes/maqTipo';
 import { maquinaria_uso_router } from './api/routes/maqUso';
+import { usuario_router } from './api/routes/usuario';
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -31,4 +32,5 @@ app.use('/api',auth_router)
 app.use('/api',maquinaria_router)
 app.use('/api',maquinaria_tipo_router)
 app.use('/api',maquinaria_uso_router)
+app.use('/api',usuario_router)
 // app.use('/',(req:any,res:any)=>{res.send('it works :v')})
