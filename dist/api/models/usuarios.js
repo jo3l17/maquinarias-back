@@ -43,6 +43,10 @@ exports.usuarios_model = (sequelize) => {
             type: sequelize_1.DataTypes.STRING(60),
             allowNull: false
         },
+        usu_img: {
+            type: sequelize_1.DataTypes.STRING(1000),
+            allowNull: true
+        },
         usu_hash: {
             type: sequelize_1.DataTypes.TEXT,
             allowNull: false
@@ -73,6 +77,7 @@ exports.usuarios_model = (sequelize) => {
             usu_id: this.usu_id,
             usu_nombre: this.usu_nombre,
             usu_doc_num: this.usu_doc_num,
+            usu_email: this.usu_email,
             usu_razon_social: this.usu_razon_social
         };
         var token = jwt.sign(payload, 'sape', { expiresIn: '1h' }, { algorithm: 'RS256' });
