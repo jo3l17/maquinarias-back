@@ -13,15 +13,18 @@ exports.usuarios_model = (sequelize) => {
         },
         usu_doc_tipo: {
             type: sequelize_1.DataTypes.STRING(1),
-            allowNull: false
+            allowNull: false,
+            defaultValue: '1'
         },
         usu_doc_num: {
             type: sequelize_1.DataTypes.STRING(15),
-            allowNull: false
+            allowNull: false,
+            defaultValue: '12345678'
         },
         usu_razon_social: {
             type: sequelize_1.DataTypes.STRING(30),
-            allowNull: false
+            allowNull: false,
+            defaultValue: '123456789'
         },
         usu_nombre: {
             type: sequelize_1.DataTypes.STRING(50),
@@ -29,11 +32,13 @@ exports.usuarios_model = (sequelize) => {
         },
         usu_telefono: {
             type: sequelize_1.DataTypes.STRING(15),
-            allowNull: false
+            allowNull: false,
+            defaultValue: '123456789'
         },
         usu_direccion: {
             type: sequelize_1.DataTypes.STRING(40),
-            allowNull: false
+            allowNull: false,
+            defaultValue: '123456789'
         },
         usu_tipo: {
             type: sequelize_1.DataTypes.STRING(1),

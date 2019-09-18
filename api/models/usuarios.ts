@@ -12,15 +12,18 @@ export var usuarios_model = (sequelize: Sequelize) => {
             },
             usu_doc_tipo: {
                 type: DataTypes.STRING(1),
-                allowNull: false
+                allowNull: false,
+                defaultValue:'1'
             },
             usu_doc_num: {
                 type: DataTypes.STRING(15),
-                allowNull: false
+                allowNull: false,
+                defaultValue:'12345678'
             },
             usu_razon_social: {
                 type: DataTypes.STRING(30),
-                allowNull: false
+                allowNull: false,
+                defaultValue:'123456789'
             },
             usu_nombre: {
                 type: DataTypes.STRING(50),
@@ -28,11 +31,13 @@ export var usuarios_model = (sequelize: Sequelize) => {
             },
             usu_telefono: {
                 type: DataTypes.STRING(15),
-                allowNull: false
+                allowNull: false,
+                defaultValue:'123456789'
             },
             usu_direccion: {
                 type: DataTypes.STRING(40),
-                allowNull: false
+                allowNull: false,
+                defaultValue:'123456789'
             },
             usu_tipo: {
                 type: DataTypes.STRING(1),

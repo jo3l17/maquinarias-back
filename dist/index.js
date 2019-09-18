@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 });
 app.listen(puerto, () => {
     console.log(`servidor coriendo en ${puerto}`);
-    sequelize_1.sequelize.sync({ force: true }).then(() => {
+    sequelize_1.sequelize.sync({ force: false }).then(() => {
         console.log('base de datos creada');
     }).catch((error) => {
         console.log(error);
