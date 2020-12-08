@@ -1,6 +1,7 @@
 "use strict";
 // USUARIO CONTROLLERS
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.usuario_controller = void 0;
 const sequelize_1 = require("./../config/sequelize");
 const SubirArchivoFirebase_1 = require("../utils/SubirArchivoFirebase");
 exports.usuario_controller = {

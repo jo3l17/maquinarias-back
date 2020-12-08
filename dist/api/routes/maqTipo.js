@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.maquinaria_tipo_router = void 0;
 const maqTipo_1 = require("../controllers/maqTipo");
 const express_1 = require("express");
 exports.maquinaria_tipo_router = express_1.Router();

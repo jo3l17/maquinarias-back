@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.maquinaria_uso_controller = void 0;
 const sequelize_1 = require("../config/sequelize");
 const Sequelize = require('sequelize');
 var path_module = require('path');

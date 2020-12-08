@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.cotizacion_model = void 0;
 const sequelize_1 = require("sequelize");
 exports.cotizacion_model = (sequelize) => {
     var cotizacion_model = sequelize.define('t_cotizacion', {

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.usuario_router = void 0;
 const usuario_1 = require("../controllers/usuario");
 const express_1 = require("express");
 const Multer = require('multer');

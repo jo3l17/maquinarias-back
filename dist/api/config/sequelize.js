@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MaqUsoTipo = exports.MaqTipo = exports.MaqUso = exports.CotizacionIndividual = exports.CotizacionMasiva = exports.RegistroCotizacion = exports.Alquiler = exports.Maquinaria = exports.Cotizacion = exports.Usuario = exports.sequelize = void 0;
 const usuarios_1 = require("../models/usuarios");
 const cotizacion_1 = require("../models/cotizacion");
 const maquinaria_1 = require("../models/maquinaria");
@@ -11,7 +12,7 @@ const maqUso_1 = require("../models/maqUso");
 const maqTipo_1 = require("../models/maqTipo");
 const maqUsoTipo_1 = require("../models/maqUsoTipo");
 const Sequelize = require('sequelize');
-exports.sequelize = new Sequelize('D4hcPSsuFt', 'D4hcPSsuFt', 'GuymIIF1TU', {
+exports.sequelize = new Sequelize('lkn8w64zrb', 'lkn8w64zrb', '4Jb0WFrgLs', {
     host: 'remotemysql.com',
     dialect: 'mysql',
     timezone: '-05:00',

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.subirArchivo = void 0;
 // Imports the Google Cloud client library.
 const { Storage } = require('@google-cloud/storage');
 // Instantiates a client. Explicitly use service account credentials by

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.maquinaria_model = void 0;
 const sequelize_1 = require("sequelize");
 exports.maquinaria_model = (sequelize) => {
     var maquinaria_model = sequelize.define('t_maquinaria', {

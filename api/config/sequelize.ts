@@ -11,7 +11,7 @@ import { maqTipo_model } from '../models/maqTipo';
 import { maqUsoTipo_model } from '../models/maqUsoTipo';
 
 const Sequelize = require('sequelize');
-export const sequelize = new Sequelize('D4hcPSsuFt','D4hcPSsuFt','GuymIIF1TU',{
+export const sequelize = new Sequelize('lkn8w64zrb','lkn8w64zrb','4Jb0WFrgLs',{
     host:'remotemysql.com',
     dialect:'mysql',
     timezone:'-05:00',
